@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * main - Entry point
- * Description: prints alphabets 
+ * Description: prints alphabets
  * in lowercase except q and e
  * Return: 0
  */
