@@ -1,6 +1,17 @@
 #include "main.h"
 /**
- * print_alphabet - prints alphabets 10x
+ * main - check the code.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	print_alphabet_x10();
+	return (0);
+}
+
+/**
+ * print_alphabet_x10 - prints alphabets 10x
  *
  * Description: prints the alphabet,
  * in lowercase 10 times,
@@ -9,13 +20,14 @@
  */
 void print_alphabet_x10(void)
 {
-        int i = 0;
+	int i;
+	int j = 0;
 
-	while (i < 10)
+	while (j < 10)
 	{
-        for (i = 97; i < 123; i++)
-                putchar(i);
-	i++;
+	for (i = 97; i < 123; i++)
+		putchar(i);
+	j++;
+	putchar(10);
 	}
-        putchar(10);
 }
