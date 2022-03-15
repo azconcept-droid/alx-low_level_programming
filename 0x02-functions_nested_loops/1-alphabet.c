@@ -1,18 +1,5 @@
 #include "main.h"
 /**
- * main - Entry point
- *
- * Description:  prints the alphabet, in lowercase,
- * followed by a new line.
- * Return: 0
- */
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
-
-/**
  * print_alphabet - prints alphabets
  * @i: ascii variable
  *
