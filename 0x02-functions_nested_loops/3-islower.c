@@ -1,5 +1,5 @@
 #include "main.h"
-/**
+:/**
  * _islower - lowercase finder
  * @c: argument
  *
