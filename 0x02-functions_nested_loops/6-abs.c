@@ -3,7 +3,7 @@
  *  _abs - compute absolute value
  *  @r: number pass into _abs
  *
- *  Description: function that computes 
+ *  Description: function that computes
  *  the absolute value of an integer
  *  Return: absolute value
  */
