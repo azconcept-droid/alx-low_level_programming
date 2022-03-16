@@ -1,11 +1,11 @@
 #include "main.h"
-/*
- * times_table - prints the 9 times table
+/**
+ * times_table-prints 9 :xtimes table
  *
- * Description: function that
- * prints the 9 times table,
- * starting with 0
- * Return: void.
+ * Description: function that prints
+ * the 9 times table,
+ * starting with 0.
+ * Return: nothing.
  */
 void times_table(void)
 {
