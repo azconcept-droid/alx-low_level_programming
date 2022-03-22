@@ -19,15 +19,16 @@ void puts_half(char *str)
 	{
 		for (j = (len / 2); str[j] != '\0'; j++)
 		{
-			printf("%c", str[j]);
+			_putchar(str[j]);
 		}
 	}
 	else
 	{
 		for (j = ((len - 1) / 2); str[j] != '\0'; j++)
 		{
-			printf("%c", str[j]);
+			_putchar(str[j]);
 		}
 
 	}
+	_putchar('\n');
 }
