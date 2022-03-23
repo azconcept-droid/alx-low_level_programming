@@ -10,5 +10,5 @@ int main(void)
 
 	srand(time(NULL));
 	for (i = 0; i < 10; i++)
-		printf("%i\n", (rand() % 10));
+		printf("%i\n", (rand() % 100));
 }
