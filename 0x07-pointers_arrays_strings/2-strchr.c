@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.h:set"
 /**
  * _strchr -  locates a character in a string.
  * @s: string passing in
@@ -19,17 +19,26 @@ char *_strchr(char *s, char c)
 			temp = i;
 			break;
 		}
+	}
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] != c)
+		{
+			s = NULL;
+			break;
+		}
 		else
 		{
-			return (NULL);
+			while (s[temp] != '\0')
+			{
+				i = 0;
+				s[i] = s[temp];
+				temp++;
+				i++;
+			}
+			s[i] = '\0';
+			break;
 		}
-	}
-	while (s[temp] != '\0')
-	{
-		i = 0;
-		s[i] = s[temp];
-		temp++;
-		i++;
 	}
 	return (s);
 }
