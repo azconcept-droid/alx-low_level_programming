@@ -27,3 +27,6 @@
 ### main.h:
 
 Header file containing all the **prototypes** of the above functions.
+
+### create_static_lib.sh
+A script that create a static library called liball.a
