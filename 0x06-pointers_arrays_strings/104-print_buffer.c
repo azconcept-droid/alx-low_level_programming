@@ -1,11 +1,11 @@
-nclude "main.h"
+#include "main.h"
 #include <stdio.h>
 
 /**
  * print_buffer - prints a buffer
  * @b: buffer.
  * @size: size of buffer.
- * Return: no return.
+ * Return: nothing
  */
 void print_buffer(char *b, int size)
 {
