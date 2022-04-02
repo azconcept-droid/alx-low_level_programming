@@ -2,7 +2,7 @@
 
 > ### libmy.a:
 >
-> **static library**containing all the functions listed below:
+> **static library** containing all the functions listed below:
 > - int \_putchar(char c)
 > - int \_islower(int c)
 > - int \_isalpha(int c)
@@ -23,7 +23,7 @@
 > - unsigned int \_strspn(char \*s, char \*accept)
 > - char \*\_strpbrk(char \*s, char \*accept)
 > - char *_strstr(char *haystack, char *needle)
->
-> ### main.h:
->
-> **Header****file**containing all the*prototypes*of the above functions.
+
+### main.h:
+
+Header file containing all the **prototypes** of the above functions.
