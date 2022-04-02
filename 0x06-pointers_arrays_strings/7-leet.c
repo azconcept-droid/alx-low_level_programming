@@ -12,13 +12,13 @@ char *leet(char *c)
 	int value[] = {4, 3, 0, 7, 1};
 	unsigned int i;
 
-	while (*c_ptr)
+	while (*c)
 	{
 		for (i = 0; i < sizeof(key) / sizeof(char); i++)
 		{
-			if (*c_ptr == key[i] || *c_ptr == key[i] + 32)
+			if (*c == key[i] || *c == key[i] + 32)
 			{
-				*c_ptr = 48 + value[i];
+				*c = 48 + value[i];
 			}
 		}
 		c++;
