@@ -1,3 +1,5 @@
+#include <stddef.h>
+#include <stdlib.h>
 /**
  * alloc_grid -  initialize grid to 0.
  * @width: columns of grid
