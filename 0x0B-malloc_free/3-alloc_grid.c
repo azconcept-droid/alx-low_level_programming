@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * alloc_grid -  initialize grid to 0.
  * @width: columns of grid
@@ -28,7 +28,7 @@ int **alloc_grid(int width, int height)
 			grid[h][w] = 0;
 			w++;
 		}
-		_putchar('\n');
+		printf("\n");
 		h++;
 	}
 	return (grid);
