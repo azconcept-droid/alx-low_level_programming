@@ -20,9 +20,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (mem == NULL)
 		return (NULL);
 	i = 0;
-	while (i < (nmemb + 1))
+	while (i <= nmemb)
 	{
-		mem[i] = 0;
+		mem[i] = (void *) 0;
 		i++;
 	}
 	mem[i] = '\0';
