@@ -1,11 +1,12 @@
-#include <stdlib>
+#include <stdlib.h>
+#include "main.h"
 /**
  * _realloc - reallocate memory
  * @ptr: pointer to old memory
  * @old_size: size of old memory
  * @new_size: size of new memory
  *
- * Return: pointer to reallocated memory.
+ * Return: pointer ptr
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
