@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-int _isdigit(int c);
 int _putchar(char c);
 /**
  * main - multiply two arguments pass to it
@@ -20,7 +19,7 @@ int main(int argc, char *argv[])
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (!_isdigit(argv[i][j]))
+			if (argv[i][j] < 48 || argv[i][j] > 57)
 			{
 				printf("Error");
 				_putchar('\n');
@@ -28,7 +27,7 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-		printf("%d\n", (argv[1] * argv[2]));
+		printf("%lu\n", atol(argv[1]) * atol(argv[2]));
 	}
 	else
 	{
@@ -48,22 +47,4 @@ int main(int argc, char *argv[])
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-/**
- * _isdigit - checks for a digit.
- * @c: input.
- *
- * Return: 1 if c is a digit
- * 0 otherwise.
- */
-int _isdigit(int c)
-{
-	if ((c >= '0') && (c <= '9'))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
 }
