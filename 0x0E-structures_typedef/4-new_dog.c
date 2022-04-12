@@ -28,7 +28,6 @@ char *_strcpy(char *s)
 		copy[j] = s[j];
 		j++;
 	}
-	copy[j] = '\0';
 	return (copy);
 }
 
