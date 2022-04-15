@@ -1,6 +1,6 @@
 #include "3-calc.h"
 /**
- * get_op_func - 
+ * get_op_func - selects the correct function to perform
  * @s:
  */
 int (*get_op_func(char *s))(int, int)
@@ -14,4 +14,14 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 	int i;
+
+	i = 0;
+	while (i < 10)
+	{
+		if (s[0] == ops->op[i])
+			break;
+		i++;
+	}
+
+	return (ops[i / 2].f);
 }
