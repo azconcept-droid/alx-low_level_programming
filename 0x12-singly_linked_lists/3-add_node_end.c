@@ -1,5 +1,5 @@
 #include "lists.h"
-/*
+/**
  * add_node_end - adds a new node at the end of a list_t list
  * @head: pointer to head
  * @str: string data
@@ -19,7 +19,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	len = 0;
 	while (str[len])
 		len++;
-	new_node->str - strdup(str);
+	new_node->str = strdup(str);
 	new_node->len = len;
 	new_node->next = NULL;
 
