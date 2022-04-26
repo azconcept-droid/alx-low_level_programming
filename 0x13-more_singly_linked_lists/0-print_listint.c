@@ -16,10 +16,5 @@ size_t print_listint(const listint_t *h)
 		h = h->next;
 		count_node++;
 	}
-	if (h == NULL)
-	{
-		printf("%i\n", h->n);
-		count_node++;
-	}
 	return (count_node);
 }
