@@ -8,11 +8,11 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	if (!b)
-		return (0);
-
 	unsigned int dec, weight;
 	int len;
+
+	if (!b)
+		return (0);
 
 	dec = 0, weight = 1, len = 0;
 	/*Get length of string*/
