@@ -16,9 +16,8 @@ void print_binary(unsigned long int n)
 		print_binary(n >> 1);
 		_putchar((n_dup & 1) + '0');
 	}
-	else 
+	else
 	{
 		_putchar(n + '0');
-		return;
 	}
 }
