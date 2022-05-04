@@ -9,7 +9,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, i;
+	int fd, i = 0;
 	ssize_t l_write;
 
 	if (filename == NULL)
@@ -17,7 +17,7 @@ int create_file(const char *filename, char *text_content)
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
-	i = 0;
+
 	while (text_content[i] != '\0')	/*Calculate length of text_content*/
 		i++;
 	l_write = write(fd, text_content, i);
