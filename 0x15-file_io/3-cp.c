@@ -51,39 +51,41 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		exit(99);
 	}
-	fdfr_read = read(fd_from, buffer, 1024);
-	if (fdfr_read == -1)
+	while ((fdfr_read = read(fd_from, buffer, 1024)) != 0)
 	{
-		fdto_close = close(fd_to), fdfr_close = close(fd_from);
-		if (fdto_close == -1)
+		if (fdfr_read == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-			exit(100);
+			fdto_close = close(fd_to), fdfr_close = close(fd_from);
+			if (fdto_close == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+				exit(100);
+			}
+			if (fdfr_close == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+				exit(100);
+			}
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
-		if (fdfr_close == -1)
+		fdto_write = write(fd_to, buffer, fdfr_read);
+		if (fdto_write == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-			exit(100);
+			fdto_close = close(fd_to), fdfr_close = close(fd_from);
+			if (fdto_close == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+				exit(100);
+			}
+			if (fdfr_close == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+				exit(100);
+			}
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			exit(99);
 		}
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	fdto_write = write(fd_to, buffer, fdfr_read);
-	if (fdto_write == -1)
-	{
-		fdto_close = close(fd_to), fdfr_close = close(fd_from);
-		if (fdto_close == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
-			exit(100);
-		}
-		if (fdfr_close == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
-			exit(100);
-		}
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-		exit(99);
 	}
 	fdto_close = close(fd_to), fdfr_close = close(fd_from);
 	if (fdto_close == -1)
