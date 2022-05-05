@@ -17,11 +17,27 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	if (argv[1] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
+	}
+	if (argv[2] == NULL)
+	{
+		fdfr_close = close(fd_from);
+		if (fdfr_close == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+			exit(100);
+		}
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		exit(99);
 	}
 	fd_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 	if (fd_to == -1)
