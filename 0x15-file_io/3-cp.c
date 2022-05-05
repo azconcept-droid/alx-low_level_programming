@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		exit(99);
 	}
-	while ((fdfr_read = read(fd_from, buffer, 1024)) != 0)
+	while ((fdfr_read = read(fd_from, buffer, 1024)))
 	{
 		if (fdfr_read == -1)
 		{
