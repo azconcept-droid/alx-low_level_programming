@@ -1,39 +1,29 @@
 #include "main.h"
 /**
- * check_fd_and_argv2 - check if file can be written into
+ * check_fdto - check if file can be written into
  * @fd: file descriptor passed
- * @arg: argv passed
+ * @arg: agrv
  *
  * Return: nothing.
  */
-void check_fd_and_argv2(int fd, char *arg)
+void check_fdto(int fd, char *arg)
 {
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", arg);
 		exit(99);
 	}
-	if (arg == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", arg);
-		exit(99);
-	}
 }
 /**
- * check_fd_and_argv1 - check if file is open
+ * check_fdfr - check if file is open
  * @fd: file descriptor passed
- * @arg: argv passed
+ * @arg: argv
  *
  * Return: nothing
  */
-void check_fd_and_argv1(int fd, char *arg)
+void check_fdfr(int fd, char *arg)
 {
 	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg);
-		exit(98);
-	}
-	if (arg == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg);
 		exit(98);
@@ -72,24 +62,21 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	check_fd_and_argv1(fd_from, argv[1]);	/*Check if argv[1] is not NULL*/
 
 	fd_from = open(argv[1], O_RDONLY);
 
-	check_fd_and_argv1(fd_from, argv[1]);	/*Check if fd_from is not -1*/
-
-	check_fd_and_argv2(fd_to, argv[2]);	/*Check if argv[2] is not NULL*/
+	check_fdfr(fd_from, argv[1]);	/*Check if fd_from is not -1*/
 
 	fd_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 
-	check_fd_and_argv2(fd_to, argv[2]);	/*Check if fd_to is not -1*/
+	check_fdto(fd_to, argv[2]);	/*Check if fd_to is not -1*/
 
 	while (fdfr_read > 0)
 	{
 		fdfr_read = read(fd_from, buffer, 1024);
-		check_fd_and_argv1(fdfr_read, argv[1]);
+		check_fdfr(fdfr_read, argv[1]);
 		fdto_write = write(fd_to, buffer, fdfr_read);
-		check_fd_and_argv2(fdto_write, argv[2]);
+		check_fdto(fdto_write, argv[2]);
 	}
 	fdto_close = close(fd_to);
 	check_close(fdto_close, fd_to);
