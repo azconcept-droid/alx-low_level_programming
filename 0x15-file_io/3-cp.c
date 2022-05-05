@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
 	int fd_from, fd_to, fdfr_close, fdto_close;
-	ssize_t fdfr_read, fdto_write;
+	int fdfr_read, fdto_write;
 	char buffer[1024];
 
 	if (argc != 3)
