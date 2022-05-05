@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 		exit(99);
 	}
-	fd_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	fd_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC | O_EXCL, 0664);
 	if (fd_to == -1)
 	{
 		fdfr_close = close(fd_from);
