@@ -64,7 +64,7 @@ void check_close(int fd_close, int fd)
 int main(int argc, char **argv)
 {
 	int fd_from = 0, fd_to = 0, fdfr_close, fdto_close;
-	int fdfr_read, fdto_write;
+	int fdfr_read = 1, fdto_write;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -84,8 +84,9 @@ int main(int argc, char **argv)
 
 	check_fd_and_argv2(fd_to, argv[2]);	/*Check if fd_to is not -1*/
 
-	while ((fdfr_read = read(fd_from, buffer, 1024)))
+	while (fdfr_read > 0)
 	{
+		fdfr_read = read(fd_from, buffer, 1024);
 		check_fd_and_argv1(fdfr_read, argv[1]);
 		fdto_write = write(fd_to, buffer, fdfr_read);
 		check_fd_and_argv2(fdto_write, argv[2]);
