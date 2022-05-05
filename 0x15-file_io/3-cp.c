@@ -54,12 +54,14 @@ int main(int argc, char **argv)
 			exit(99);
 		}
 	}
-	fdto_close = close(fd_to), fdfr_close = close(fd_from);
+
+	fdto_close = close(fd_to);
 	if (fdto_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
+	fdfr_close = close(fd_from);
 	if (fdfr_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
