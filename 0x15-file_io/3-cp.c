@@ -76,11 +76,13 @@ int main(int argc, char **argv)
 		fdfr_read = read(fd_from, buffer, 1024);
 		check_fdfr(fdfr_read, argv[1]);
 		fdto_write = write(fd_to, buffer, fdfr_read);
+		if (fdfr_read != fdto_write)
+			fdto_write = -1;
 		check_fdto(fdto_write, argv[2]);
 	}
-	fdto_close = close(fd_to);
-	check_close(fdto_close, fd_to);
 	fdfr_close = close(fd_from);
 	check_close(fdfr_close, fd_from);
+	fdto_close = close(fd_to);
+	check_close(fdto_close, fd_to);
 	return (0);
 }
