@@ -53,8 +53,8 @@ void check_close(int fd_close, int fd)
  */
 int main(int argc, char **argv)
 {
-	int fd_from = 0, fd_to = 0, fdfr_close, fdto_close;
-	int fdfr_read = 1, fdto_write;
+	int fd_from, fd_to, fdfr_close, fdto_close;
+	ssize_t fdfr_read = 1024, fdto_write;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -67,11 +67,11 @@ int main(int argc, char **argv)
 
 	check_fdfr(fd_from, argv[1]);	/*Check if fd_from is not -1*/
 
-	fd_to = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 
 	check_fdto(fd_to, argv[2]);	/*Check if fd_to is not -1*/
 
-	while (fdfr_read > 0)
+	while (fdfr_read == 1024)
 	{
 		fdfr_read = read(fd_from, buffer, 1024);
 		check_fdfr(fdfr_read, argv[1]);
