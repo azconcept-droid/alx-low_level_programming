@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 
 	check_fdfr(fd_from, argv[1]);	/*Check if fd_from is not -1*/
 
-	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	check_fdto(fd_to, argv[2]);	/*Check if fd_to is not -1*/
 
@@ -76,8 +76,6 @@ int main(int argc, char **argv)
 		fdfr_read = read(fd_from, buffer, 1024);
 		check_fdfr(fdfr_read, argv[1]);
 		fdto_write = write(fd_to, buffer, fdfr_read);
-		if (fdfr_read != fdto_write)
-			fdto_write = -1;
 		check_fdto(fdto_write, argv[2]);
 	}
 	fdfr_close = close(fd_from);
