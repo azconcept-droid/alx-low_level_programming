@@ -10,7 +10,7 @@ void check_fdto(int fd, char *arg)
 {
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write from file %s\n", arg);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg);
 		exit(99);
 	}
 }
