@@ -19,7 +19,12 @@ unsigned int listint_len(const dlistint_t *h)
 	return (node);
 }
 /**
+ * insert_dnodeint_at_index - insert new node at given position.
+ * @h: pointer to pointer to head
+ * @idx: index of list where node is added
+ * @n: data to insert
  *
+ * Return: address of new node or NULL.
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
@@ -34,10 +39,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	list_len = listint_len(*h);
 
-	printf("lenght of list = %i\n", list_len);
-
 	if (*h == NULL && idx > list_len)
-	       return (NULL);
+		return (NULL);
 
 	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
