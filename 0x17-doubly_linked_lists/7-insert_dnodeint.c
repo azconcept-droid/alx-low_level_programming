@@ -39,7 +39,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	list_len = listint_len(*h);
 
-	if (*h == NULL && idx > list_len)
+	if (*h == NULL)
+		return (NULL);
+
+	if (idx >= list_len)
 		return (NULL);
 
 	new_node = malloc(sizeof(dlistint_t));
