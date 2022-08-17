@@ -1,10 +1,11 @@
-.PHONY: all
+.PHONY: all compile clean
 
 CC = gcc
 SRC := $(wildcard *.c)
 
-all: school clean
-school:
-	${CC} ${SRC} -o $@
+all: compile clean
+
+compile:
+	${CC} ${SRC} -o school
 clean:
 	@rm school
