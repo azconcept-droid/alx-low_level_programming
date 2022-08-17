@@ -1,0 +1,12 @@
+.PHONY: all
+
+CC = gcc
+SRC := $(wildcard *.c)
+OBJ := $(wildcard *.o)
+NAME := $(SRC:%.c=%)
+
+all: ${NAME}
+%: %.o
+	${CC} -c -o ${SRC} 
+%.o: %.c
+	${CC} -c $<
