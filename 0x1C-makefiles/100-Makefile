@@ -1,0 +1,31 @@
+# This file automates the compilation of a C program
+# Usage:
+# make        # build all executable
+
+.PHONY: all clean oclean fclean re
+
+CC = gcc #compiler to use
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# builds your executable
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# deletes all Emacs and Vim temporary files
+# along with the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+# deletes all Emacs and Vim temporary files,
+# the executable, and the object files
+fclean: clean oclean
+
+# forces recompilation of all source files
+re: oclean all
