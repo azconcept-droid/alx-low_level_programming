@@ -9,10 +9,10 @@
  */
 size_t min(size_t first, size_t second)
 {
-	if (step > size)
-		return (size);
+	if (first > second)
+		return (second);
 	else
-		return (step);
+		return (first);
 }
 
 /**
