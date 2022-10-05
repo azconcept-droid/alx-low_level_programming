@@ -80,7 +80,7 @@ int exponential_search(int *array, size_t size, int value)
 
 	while (bound < size && array[bound] <= value)
 	{
-		printf("Value checked array[%li] = [%i]\n", bound,array[bound]);
+		printf("Value checked array[%li] = [%i]\n", bound, array[bound]);
 		bound *= 2;
 	}
 
