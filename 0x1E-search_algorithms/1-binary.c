@@ -17,7 +17,7 @@ int binary_search(int *array, size_t size, int value)
 	/*@L: Left boundary, @R: Right Boundary @m: middle index*/
 	size_t L = 0, R = size - 1, m;
 
-	if (!array)
+	if (!array && size <= 0)
 		return (-1);
 
 	do {
